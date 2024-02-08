@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>我的第一篇博客</title>
+    <url>/2024/02/08/introduction/</url>
+    <content><![CDATA[<p>对于程序员来说，写技术博客是十分必要的。今天我按照网上的教程，成功搭建了属于自己的博客网站，并部署在 Github上，喜悦之情无以言表。这种凭借一己之力开创新事物的感觉仿佛让我回到了数年前，那时我写出了人生中第一个程序，也就是著名的 ”Hello World“。当看到终端上成功输出这句简单的英文时，我感到计算机世界的大门已向我徐徐打开。<br>如今，我接触到了更多的项目，更复杂的技术。然而，我的初心却从未改变。<br>一切正在开始 …… 不，一切已经开始！</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>感想</tag>
+      </tags>
+  </entry>
+</search>
