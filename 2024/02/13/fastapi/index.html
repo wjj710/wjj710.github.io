@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/site.webmanifest">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wjj710.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="WebSocketWebSocket是Web浏览器和Web服务器之间的全双工通信标准。它支持由服务器向客户端推送数据的推送功能，并且能够减少通信量。为了实现WebSocket通信，在HTTP连接建立之后，需要完成一次握手的步骤。  ASGIASGI的全称是异步服务器网关接口，它是一个介于Web服务器和Web应用程序之间的标准接口。与ASGI相关的另一个重要概念是WSGI，也就是Web服务器网关接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自底向上分析FastAPI框架">
+<meta property="og:url" content="https://wjj710.github.io/2024/02/13/fastapi/index.html">
+<meta property="og:site_name" content="Jay&#39;s Blog">
+<meta property="og:description" content="WebSocketWebSocket是Web浏览器和Web服务器之间的全双工通信标准。它支持由服务器向客户端推送数据的推送功能，并且能够减少通信量。为了实现WebSocket通信，在HTTP连接建立之后，需要完成一次握手的步骤。  ASGIASGI的全称是异步服务器网关接口，它是一个介于Web服务器和Web应用程序之间的标准接口。与ASGI相关的另一个重要概念是WSGI，也就是Web服务器网关接口">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wjj710.github.io/2024/02/13/fastapi/websocket.jpg">
+<meta property="og:image" content="https://wjj710.github.io/2024/02/13/fastapi/fastapi.jpg">
+<meta property="article:published_time" content="2024-02-13T10:20:32.000Z">
+<meta property="article:modified_time" content="2024-02-19T13:47:29.476Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wjj710.github.io/2024/02/13/fastapi/websocket.jpg">
+
+
+<link rel="canonical" href="https://wjj710.github.io/2024/02/13/fastapi/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://wjj710.github.io/2024/02/13/fastapi/","path":"2024/02/13/fastapi/","title":"自底向上分析FastAPI框架"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>自底向上分析FastAPI框架 | Jay's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jay's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="/images/knight.jpg" alt="Jay's Blog">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/introduction/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSocket"><span class="nav-number">1.</span> <span class="nav-text">WebSocket</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ASGI"><span class="nav-number">2.</span> <span class="nav-text">ASGI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Starlette"><span class="nav-number">3.</span> <span class="nav-text">Starlette</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Uvicorn"><span class="nav-number">4.</span> <span class="nav-text">Uvicorn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Pydantic"><span class="nav-number">5.</span> <span class="nav-text">Pydantic</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FastAPI"><span class="nav-number">6.</span> <span class="nav-text">FastAPI</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">The night is darkest just before the dawn.</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://wjj710.github.io/2024/02/13/fastapi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jay's Blog">
+      <meta itemprop="description" content="The night is darkest just before the dawn.">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="自底向上分析FastAPI框架 | Jay's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自底向上分析FastAPI框架
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-13 11:20:32" itemprop="dateCreated datePublished" datetime="2024-02-13T11:20:32+01:00">2024-02-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-02-19 14:47:29" itemprop="dateModified" datetime="2024-02-19T14:47:29+01:00">2024-02-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><p>WebSocket是Web浏览器和Web服务器之间的全双工通信标准。它支持由服务器向客户端推送数据的推送功能，并且能够减少通信量。为了实现WebSocket通信，在HTTP连接建立之后，需要完成一次握手的步骤。</p>
+<p><img src="/2024/02/13/fastapi/websocket.jpg"></p>
+<h1 id="ASGI"><a href="#ASGI" class="headerlink" title="ASGI"></a>ASGI</h1><p>ASGI的全称是异步服务器网关接口，它是一个介于Web服务器和Web应用程序之间的标准接口。与ASGI相关的另一个重要概念是WSGI，也就是Web服务器网关接口。WSGI是基于HTTP协议模式开发的，不支持WebSocket。ASGI是WSGI的扩展，在原有基础上增加了许多新的特性，比如支持HTTP2，WebSocket和异步通信等。</p>
+<h1 id="Starlette"><a href="#Starlette" class="headerlink" title="Starlette"></a>Starlette</h1><p>Starlette是一个支持ASGI的异步框架，它可以用于构建Web应用程序。在以下示例中，我们通过Starlette类构建了一个应用（app），并注册了主页（homepage）的路由。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> starlette.applications <span class="keyword">import</span> Starlette</span><br><span class="line"><span class="keyword">from</span> starlette.responses <span class="keyword">import</span> JSONResponse</span><br><span class="line"><span class="keyword">from</span> starlette.routing <span class="keyword">import</span> Route</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">homepage</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> JSONResponse(&#123;<span class="string">&#x27;hello&#x27;</span>: <span class="string">&#x27;world&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = Starlette(debug=<span class="literal">True</span>, routes=[</span><br><span class="line">    Route(<span class="string">&#x27;/&#x27;</span>, homepage),</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<h1 id="Uvicorn"><a href="#Uvicorn" class="headerlink" title="Uvicorn"></a>Uvicorn</h1><p>Uvicorn是一个快速的ASGI服务器，基于uvloop（用于处理事件循环）和httptools（用于处理HTTP协议）构建。通过它，前端可以与后台的应用程序进行交互。Uvicorn要求应用程序实现一个包含三个参数（连接信息scope，接收信道receive，发送信道send）的函数或示例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">app</span>(<span class="params">scope, receive, send</span>):</span><br><span class="line">    <span class="keyword">assert</span> scope[<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;http&#x27;</span></span><br><span class="line">    <span class="keyword">await</span> send(&#123;</span><br><span class="line">        <span class="string">&#x27;type&#x27;</span>: <span class="string">&#x27;http.response.start&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;status&#x27;</span>: <span class="number">200</span>,</span><br><span class="line">        <span class="string">&#x27;headers&#x27;</span>: [</span><br><span class="line">            [<span class="string">b&#x27;content-type&#x27;</span>, <span class="string">b&#x27;text/plain&#x27;</span>],</span><br><span class="line">        ]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">await</span> send(&#123;</span><br><span class="line">        <span class="string">&#x27;type&#x27;</span>: <span class="string">&#x27;http.response.body&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;body&#x27;</span>: <span class="string">b&#x27;Hello, world!&#x27;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    uvicorn.run(<span class="string">&quot;main:app&quot;</span>, port=<span class="number">5000</span>, log_level=<span class="string">&quot;info&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>可以通过以下命令运行Uvicorn：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uvicorn main:app</span><br></pre></td></tr></table></figure>
+
+<h1 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h1><p>Pydantic是一个Python库。用户只需定义一个类，用Python的类型提示标注其字段，Pydantic就会自动处理验证和序列化。<br>在以下示例中，我们将输入数据传递给一个Order类，如果数据无效，Pydantic将自动抛出一个详细的错误，指出哪个字段无效以及为什么。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel, Field</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    product_id: <span class="built_in">int</span> = Field(..., gt=<span class="number">0</span>)</span><br><span class="line">    quantity: <span class="built_in">int</span> = Field(..., gt=<span class="number">0</span>, le=<span class="number">100</span>)</span><br><span class="line">    payment_method: <span class="built_in">str</span> = Field(..., regex=<span class="string">&quot;^(credit_card|paypal)$&quot;</span>)</span><br><span class="line"></span><br><span class="line">order_data = &#123;</span><br><span class="line">    <span class="string">&quot;product_id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;quantity&quot;</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">&quot;payment_method&quot;</span>: <span class="string">&quot;credit_card&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    order = Order(**order_data)</span><br><span class="line"><span class="keyword">except</span> ValidationError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e.json())</span><br></pre></td></tr></table></figure>
+<p>我们还可以将order序列化为字典或者JSON格式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">order_dict = order.<span class="built_in">dict</span>()</span><br><span class="line">order_json = order.json()</span><br></pre></td></tr></table></figure>
+<h1 id="FastAPI"><a href="#FastAPI" class="headerlink" title="FastAPI"></a>FastAPI</h1><p>FastAPI是一个基于Starlette和Pydantic的API框架，它具有非常高的性能，并且包含数据处理的功能。此外，它可以自动生成交互式API文档，便于开发和测试。<br><img src="/2024/02/13/fastapi/fastapi.jpg"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/12/cpp-basic/" rel="prev" title="C++基础">
+                  <i class="fa fa-angle-left"></i> C++基础
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"></span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

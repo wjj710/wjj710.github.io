@@ -20,24 +20,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wjj710.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="The night is darkest just before the dawn.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jay&#39;s Blog">
-<meta property="og:url" content="https://wjj710.github.io/index.html">
+    <meta name="description" content="输入输出标准输入输出对象iostream库包含两个基础类型istream和ostream，分别表示输入流和输出流，一个流就是一个字符序列。cin是istream类型的对象，被称为标准输入。cout是ostream类型的对象，被称为标准输出。此外，标准库还定义了其它两个ostream对象，分别是cerr（标准错误，输出警告和错误信息）和clog（输出程序运行时的一般性信息）。 输入输出有关符号1co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++基础">
+<meta property="og:url" content="https://wjj710.github.io/2024/02/12/cpp-basic/index.html">
 <meta property="og:site_name" content="Jay&#39;s Blog">
-<meta property="og:description" content="The night is darkest just before the dawn.">
+<meta property="og:description" content="输入输出标准输入输出对象iostream库包含两个基础类型istream和ostream，分别表示输入流和输出流，一个流就是一个字符序列。cin是istream类型的对象，被称为标准输入。cout是ostream类型的对象，被称为标准输出。此外，标准库还定义了其它两个ostream对象，分别是cerr（标准错误，输出警告和错误信息）和clog（输出程序运行时的一般性信息）。 输入输出有关符号1co">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wjj710.github.io/2024/02/12/cpp-basic/cpptype.jpg">
+<meta property="og:image" content="https://wjj710.github.io/2024/02/12/cpp-basic/iter.jpg">
+<meta property="og:image" content="https://wjj710.github.io/2024/02/12/cpp-basic/except.jpg">
+<meta property="article:published_time" content="2024-02-12T11:54:05.000Z">
+<meta property="article:modified_time" content="2024-02-19T13:49:15.490Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wjj710.github.io/2024/02/12/cpp-basic/cpptype.jpg">
 
 
-<link rel="canonical" href="https://wjj710.github.io/">
+<link rel="canonical" href="https://wjj710.github.io/2024/02/12/cpp-basic/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://wjj710.github.io/2024/02/12/cpp-basic/","path":"2024/02/12/cpp-basic/","title":"C++基础"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Jay's Blog</title>
+<title>C++基础 | Jay's Blog</title>
   
 
 
@@ -70,7 +76,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Jay's Blog</h1>
+      <p class="site-title">Jay's Blog</p>
       <i class="logo-line"></i>
     </a>
       <img class="custom-logo-image" src="/images/knight.jpg" alt="Jay's Blog">
@@ -124,7 +130,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -137,6 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number">1.</span> <span class="nav-text">输入输出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">标准输入输出对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%9C%89%E5%85%B3%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.2.</span> <span class="nav-text">输入输出有关符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E7%A7%8D%E8%BE%93%E5%85%A5%E6%96%B9%E5%BC%8F%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-number">1.3.</span> <span class="nav-text">几种输入方式的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E6%B5%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5"><span class="nav-number">1.4.</span> <span class="nav-text">控制流与数据输入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">变量和基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">基本内置类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.2.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.2.1.</span> <span class="nav-text">隐式转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.2.2.</span> <span class="nav-text">显式转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E5%92%8C%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.</span> <span class="nav-text">常量和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">2.3.2.</span> <span class="nav-text">变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.4.</span> <span class="nav-text">复合类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">2.4.1.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88"><span class="nav-number">2.4.2.</span> <span class="nav-text">指针</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.5.</span> <span class="nav-text">处理类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="nav-number">2.5.1.</span> <span class="nav-text">类型别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E%E7%AC%A6"><span class="nav-number">2.5.2.</span> <span class="nav-text">auto类型说明符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E5%AE%83%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5"><span class="nav-number">3.</span> <span class="nav-text">其它关键概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">3.1.</span> <span class="nav-text">命名空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.1.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.2.1.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86"><span class="nav-number">3.2.2.</span> <span class="nav-text">遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">3.3.</span> <span class="nav-text">异常处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">3.4.</span> <span class="nav-text">函数重载</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -171,115 +178,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wjj710.github.io/2024/02/13/fastapi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jay's Blog">
-      <meta itemprop="description" content="The night is darkest just before the dawn.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jay's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/13/fastapi/" class="post-title-link" itemprop="url">自底向上分析FastAPI框架</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-02-13 11:20:32" itemprop="dateCreated datePublished" datetime="2024-02-13T11:20:32+01:00">2024-02-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 14:47:29" itemprop="dateModified" datetime="2024-02-19T14:47:29+01:00">2024-02-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><p>WebSocket是Web浏览器和Web服务器之间的全双工通信标准。它支持由服务器向客户端推送数据的推送功能，并且能够减少通信量。为了实现WebSocket通信，在HTTP连接建立之后，需要完成一次握手的步骤。</p>
-<p><img src="/2024/02/13/fastapi/websocket.jpg"></p>
-<h1 id="ASGI"><a href="#ASGI" class="headerlink" title="ASGI"></a>ASGI</h1><p>ASGI的全称是异步服务器网关接口，它是一个介于Web服务器和Web应用程序之间的标准接口。与ASGI相关的另一个重要概念是WSGI，也就是Web服务器网关接口。WSGI是基于HTTP协议模式开发的，不支持WebSocket。ASGI是WSGI的扩展，在原有基础上增加了许多新的特性，比如支持HTTP2，WebSocket和异步通信等。</p>
-<h1 id="Starlette"><a href="#Starlette" class="headerlink" title="Starlette"></a>Starlette</h1><p>Starlette是一个支持ASGI的异步框架，它可以用于构建Web应用程序。在以下示例中，我们通过Starlette类构建了一个应用（app），并注册了主页（homepage）的路由。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> starlette.applications <span class="keyword">import</span> Starlette</span><br><span class="line"><span class="keyword">from</span> starlette.responses <span class="keyword">import</span> JSONResponse</span><br><span class="line"><span class="keyword">from</span> starlette.routing <span class="keyword">import</span> Route</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">homepage</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> JSONResponse(&#123;<span class="string">&#x27;hello&#x27;</span>: <span class="string">&#x27;world&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = Starlette(debug=<span class="literal">True</span>, routes=[</span><br><span class="line">    Route(<span class="string">&#x27;/&#x27;</span>, homepage),</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
-<h1 id="Uvicorn"><a href="#Uvicorn" class="headerlink" title="Uvicorn"></a>Uvicorn</h1><p>Uvicorn是一个快速的ASGI服务器，基于uvloop（用于处理事件循环）和httptools（用于处理HTTP协议）构建。通过它，前端可以与后台的应用程序进行交互。Uvicorn要求应用程序实现一个包含三个参数（连接信息scope，接收信道receive，发送信道send）的函数或示例。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">app</span>(<span class="params">scope, receive, send</span>):</span><br><span class="line">    <span class="keyword">assert</span> scope[<span class="string">&#x27;type&#x27;</span>] == <span class="string">&#x27;http&#x27;</span></span><br><span class="line">    <span class="keyword">await</span> send(&#123;</span><br><span class="line">        <span class="string">&#x27;type&#x27;</span>: <span class="string">&#x27;http.response.start&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;status&#x27;</span>: <span class="number">200</span>,</span><br><span class="line">        <span class="string">&#x27;headers&#x27;</span>: [</span><br><span class="line">            [<span class="string">b&#x27;content-type&#x27;</span>, <span class="string">b&#x27;text/plain&#x27;</span>],</span><br><span class="line">        ]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">await</span> send(&#123;</span><br><span class="line">        <span class="string">&#x27;type&#x27;</span>: <span class="string">&#x27;http.response.body&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;body&#x27;</span>: <span class="string">b&#x27;Hello, world!&#x27;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    uvicorn.run(<span class="string">&quot;main:app&quot;</span>, port=<span class="number">5000</span>, log_level=<span class="string">&quot;info&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>可以通过以下命令运行Uvicorn：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uvicorn main:app</span><br></pre></td></tr></table></figure>
-
-<h1 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h1><p>Pydantic是一个Python库。用户只需定义一个类，用Python的类型提示标注其字段，Pydantic就会自动处理验证和序列化。<br>在以下示例中，我们将输入数据传递给一个Order类，如果数据无效，Pydantic将自动抛出一个详细的错误，指出哪个字段无效以及为什么。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel, Field</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Order</span>(<span class="title class_ inherited__">BaseModel</span>):</span><br><span class="line">    product_id: <span class="built_in">int</span> = Field(..., gt=<span class="number">0</span>)</span><br><span class="line">    quantity: <span class="built_in">int</span> = Field(..., gt=<span class="number">0</span>, le=<span class="number">100</span>)</span><br><span class="line">    payment_method: <span class="built_in">str</span> = Field(..., regex=<span class="string">&quot;^(credit_card|paypal)$&quot;</span>)</span><br><span class="line"></span><br><span class="line">order_data = &#123;</span><br><span class="line">    <span class="string">&quot;product_id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;quantity&quot;</span>: <span class="number">50</span>,</span><br><span class="line">    <span class="string">&quot;payment_method&quot;</span>: <span class="string">&quot;credit_card&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    order = Order(**order_data)</span><br><span class="line"><span class="keyword">except</span> ValidationError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(e.json())</span><br></pre></td></tr></table></figure>
-<p>我们还可以将order序列化为字典或者JSON格式。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">order_dict = order.<span class="built_in">dict</span>()</span><br><span class="line">order_json = order.json()</span><br></pre></td></tr></table></figure>
-<h1 id="FastAPI"><a href="#FastAPI" class="headerlink" title="FastAPI"></a>FastAPI</h1><p>FastAPI是一个基于Starlette和Pydantic的API框架，它具有非常高的性能，并且包含数据处理的功能。此外，它可以自动生成交互式API文档，便于开发和测试。<br><img src="/2024/02/13/fastapi/fastapi.jpg"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://wjj710.github.io/2024/02/12/cpp-basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -293,13 +202,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jay's Blog">
+      <meta itemprop="name" content="C++基础 | Jay's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/12/cpp-basic/" class="post-title-link" itemprop="url">C++基础</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          C++基础
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -341,8 +250,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h1><h2 id="标准输入输出对象"><a href="#标准输入输出对象" class="headerlink" title="标准输入输出对象"></a>标准输入输出对象</h2><p>iostream库包含两个基础类型istream和ostream，分别表示输入流和输出流，一个流就是一个字符序列。cin是istream类型的对象，被称为标准输入。cout是ostream类型的对象，被称为标准输出。此外，标准库还定义了其它两个ostream对象，分别是cerr（标准错误，输出警告和错误信息）和clog（输出程序运行时的一般性信息）。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h1><h2 id="标准输入输出对象"><a href="#标准输入输出对象" class="headerlink" title="标准输入输出对象"></a>标准输入输出对象</h2><p>iostream库包含两个基础类型istream和ostream，分别表示输入流和输出流，一个流就是一个字符序列。cin是istream类型的对象，被称为标准输入。cout是ostream类型的对象，被称为标准输出。此外，标准库还定义了其它两个ostream对象，分别是cerr（标准错误，输出警告和错误信息）和clog（输出程序运行时的一般性信息）。</p>
 <h2 id="输入输出有关符号"><a href="#输入输出有关符号" class="headerlink" title="输入输出有关符号"></a>输入输出有关符号</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>&lt;&lt;是输出运算符，它接受两个运算对象，左侧是ostream对象，右侧是要打印的值。输入运算符&gt;&gt;与它类似。</li>
@@ -437,7 +345,6 @@
 <h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *cp)</span></span>;                 <span class="comment">//func1</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">const</span> <span class="type">int</span> *beg, <span class="type">const</span> <span class="type">int</span> *end)</span></span>; <span class="comment">//func2</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">const</span> <span class="type">int</span> ia[], <span class="type">size_t</span> size)</span></span>;    <span class="comment">//func3</span></span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> j[<span class="number">2</span>] = &#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>);      <span class="comment">//调用func1</span></span><br><span class="line"><span class="built_in">print</span>(j, <span class="built_in">end</span>(j)-<span class="built_in">begin</span>(j)); <span class="comment">//调用func2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">begin</span>(j), <span class="built_in">end</span>(j));   <span class="comment">//调用func3</span></span><br></pre></td></tr></table></figure>
 <p>如果同一作用域内的几个函数名字相同但形参列表不同，我们称之为重载函数。当调用这些函数时，编译器根据传递的实参类型推断想要的是哪个函数。</p>
 
-      
     </div>
 
     
@@ -445,307 +352,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/12/http/" rel="prev" title="HTTP协议">
+                  <i class="fa fa-angle-left"></i> HTTP协议
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/02/13/fastapi/" rel="next" title="自底向上分析FastAPI框架">
+                  自底向上分析FastAPI框架 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wjj710.github.io/2024/02/12/http/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jay's Blog">
-      <meta itemprop="description" content="The night is darkest just before the dawn.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jay's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/12/http/" class="post-title-link" itemprop="url">HTTP协议</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-02-12 08:42:02" itemprop="dateCreated datePublished" datetime="2024-02-12T08:42:02+01:00">2024-02-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-20 09:32:26" itemprop="dateModified" datetime="2024-02-20T09:32:26+01:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">计算机基础知识</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h1><p>HTTP协议的全称是“Hyper Text Transfer Protocol”（超文本传输协议），它定义了客户端和服务器之间交换报文的格式和方式。 </p>
-<h2 id="URI和URL"><a href="#URI和URL" class="headerlink" title="URI和URL"></a>URI和URL</h2><ul>
-<li>URI：统一资源标识符，用来唯一地标识一个资源（比如文档、图像、视频等）。</li>
-<li>URL：统一资源定位器，是一种具体的URI，可以用来标识一个资源，而且还指明了如何定位这个资源。一个完整的URL包含以下几个部分：<br><img src="/2024/02/12/http/url.jpg"></li>
-</ul>
-<h2 id="短连接和长连接"><a href="#短连接和长连接" class="headerlink" title="短连接和长连接"></a>短连接和长连接</h2><ul>
-<li>短连接：在HTTP&#x2F;1.0中默认使用短连接。也就是说，客户端和服务器每进行一次HTTP操作，就建立一次连接，任务结束就中断连接。</li>
-<li>长连接：从HTTP&#x2F;1.1起，默认使用长连接，采用同一个TCP连接来发送和接收多个HTTP请求&#x2F;应答，避免了连接建立和释放的开销。长连接还给HTTP流水线技术（客户端可以先一次性发送多个请求，而在发送过程中不需先等待服务器的回应）提供了可实现的基础。此外，需要注意与TCP保活（keep-alive）机制（当客户端和服务端长达一定时间没有数据交互时，内核为了确保该连接还有效，发送探测报文来检测对方是否在线，然后决定是否要关闭该连接）的对比，TCP保活机制是由内核实现的，而HTTP长连接是由应用程序实现的。</li>
-</ul>
-<h2 id="Cookie和Session"><a href="#Cookie和Session" class="headerlink" title="Cookie和Session"></a>Cookie和Session</h2><ul>
-<li>Cookie：<ul>
-<li>背景：HTTP是无状态的，服务器记不住用户，每刷新一次网页就要重新登录。为解决此问题，HTTP&#x2F;1.1引入Cookie。</li>
-<li>定义：Cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器之后向同一服务器再次发起请求时被携带上，用于告知服务端两个请求是否来自同一浏览器。</li>
-<li>用途：会话状态管理（如用户登录状态），个性化设置（如用户自定义主题），浏览器行为跟踪（如跟踪分析用户行为）</li>
-</ul>
-</li>
-<li>Session：<ul>
-<li>原理：当用户登录时，服务器会创建对应的Session，Session创建完之后，会把Session的ID（这个ID相当于Cookie）发送到客户端并存储在浏览器中。这样客户端每次访问服务器时，都会带着这个ID，服务器拿到Session ID之后，在内存找到与之对应的Session。</li>
-<li>对比：Cookie是客户端保持状态的方法，而Session是服务器保持状态的方法。</li>
-</ul>
-</li>
-</ul>
-<h2 id="与其它协议的关系"><a href="#与其它协议的关系" class="headerlink" title="与其它协议的关系"></a>与其它协议的关系</h2><ul>
-<li>DNS：通过域名获取相应的IP地址</li>
-<li>HTTP：生成针对目标Web服务器的HTTP请求报文。</li>
-<li>TCP：为了方便通信，将HTTP请求报文分割成报文段，按序号分为多个报文段，把每个报文段可靠地传给对方。</li>
-<li>IP：搜索对方的地址，一边中转一边传送。</li>
-</ul>
-<h1 id="报文结构"><a href="#报文结构" class="headerlink" title="报文结构"></a>报文结构</h1><p>请求报文主要包括请求行（包含请求方法、请求URI和HTTP版本）、请求头和请求体。响应报文主要包括状态行（包含状态码、原因短语和HTTP版本）、响应头和响应体。</p>
-<p><img src="/2024/02/12/http/http.jpg"></p>
-<h2 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h2><p>HTTP中主要有以下请求方法：</p>
-<p><img src="/2024/02/12/http/method.jpg"></p>
-<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><p>状态码主要有以下几种：</p>
-<p><img src="/2024/02/12/http/code.jpg"></p>
-<h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><h2 id="HTTP与HTTPS的对比"><a href="#HTTP与HTTPS的对比" class="headerlink" title="HTTP与HTTPS的对比"></a>HTTP与HTTPS的对比</h2><ul>
-<li>HTTP协议传输的数据都是未加密的，也就是明文的，因此使用HTTP协议传输隐私信息非常不安全， HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比HTTP协议安全。</li>
-<li>HTTPS协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。此外，HTTPS因为有SSL验证，所以更耗费服务器资源，响应速度也更慢。</li>
-<li>HTTP和HTTPS使用的是不同的连接方式，用的端口也不一样，前者是80，后者是443。</li>
-</ul>
-<h2 id="SSL-TLS"><a href="#SSL-TLS" class="headerlink" title="SSL&#x2F;TLS"></a>SSL&#x2F;TLS</h2><p>SSL代表安全套接字层，它是一种用于加密和验证应用程序（如浏览器）和Web服务器之间发送的数据的协议。SSL握手的主要过程如下：</p>
-<p><img src="/2024/02/12/http/ssl.jpg"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wjj710.github.io/2024/02/12/jwt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jay's Blog">
-      <meta itemprop="description" content="The night is darkest just before the dawn.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jay's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/12/jwt/" class="post-title-link" itemprop="url">JWT身份验证技术</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-02-12 07:39:51" itemprop="dateCreated datePublished" datetime="2024-02-12T07:39:51+01:00">2024-02-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-02-19 14:49:52" itemprop="dateModified" datetime="2024-02-19T14:49:52+01:00">2024-02-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Web开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在Web系统中，身份验证是十分关键的，它保证访问系统的都是具有合法状态的用户。Web身份验证的方法有很多种，本文将重点介绍一种基于令牌的验证技术JWT，同时与其它的验证技术相对比。<br>JSON Web Token（缩写 JWT）是目前最流行的跨域认证解决方案，用于创建具有可选签名和加密的数据，于2010年被首次提出。它的出现源于互联网服务中用户认证的需求。<br>基于会话的认证是用户认证的一个常见方法，它的一般流程是：用户向服务器发送用户名和密码；服务器验证通过后，在当前会话（session）里面保存相关数据，比如用户角色、登录时间等等；服务器向用户返回一个 session_id，写入用户的 cookie；用户随后的每一次请求，都会通过 cookie，将 session_id 传回服务器；服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。<br>这种模式有一个问题，它的扩展性不好。如果是服务器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能够读取 session，而上述认证过程无法做到这一点。一种解决方案是 session 数据持久化，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。另一种方案是服务器索性不保存 session 数据了，所有数据都保存在客户端，每次请求都发回服务器。JWT 就是这种方案的一个代表。<br>JWT 的原理是，服务器认证以后，生成一个 JSON 对象并发回给用户。以后，用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名。返回的JWT主要包括三个部分：Header（头部，用于描述JWT的元数据）、Payload（负载，用来存放实际需要传递的数据）和Signature（签名，防止数据篡改），如下图所示。<br><img src="/2024/02/12/jwt/jwt.jpg"><br>JWT的应用场景主要有两种。首先是授权，这是使用 JWT 最常见的场景。通过授权，可以验证发送到服务器的请求是否属于通过身份验证登录的用户，从而可以授予该用户访问系统的权限，继而批准该用户使用获得的 token 访问路由、服务和资源。其次是信息交换。因为 JWT 可以被签名（例如，使用公钥&#x2F;私钥对），所以能确保发送方是他们所声称的那一方。此外，由于签名是使用 Header 和 Payload 计算的，因此还能验证发送的内容没有被篡改。</p>
-<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><p>JWT主要有这么几个优点。首先，JWT的使用比较灵活。它默认不加密，但也是可以加密的。生成原始 Token 以后，可以用密钥再加密一次。在JWT 不加密的情况下，不能将秘密数据写入 JWT。其次，JWT 不仅可以用于认证，也可以用于交换信息。有效使用 JWT，可以降低服务器查询数据库的次数。然而，JWT也存在一些缺陷。它的最大缺点是，由于服务器不保存 session 状态，因此无法在使用过程中废止某个 token，或者更改 token 的权限。也就是说，一旦 JWT 签发了，在到期之前就会始终有效，除非服务器部署额外的逻辑。此外，JWT 本身包含了认证信息，一旦泄露，任何人都可以获得该令牌的所有权限。为了减少盗用，JWT 的有效期应该设置得比较短。对于一些比较重要的权限，使用时应该再次对用户进行认证。</p>
-<h1 id="产品介绍与比较"><a href="#产品介绍与比较" class="headerlink" title="产品介绍与比较"></a>产品介绍与比较</h1><p>除JWT外，还有一些其它的身份验证技术，比如基于会话的验证、一次性密码等。下面我将逐一介绍它们的特点，同时对比分析JWT。<br>HTTP协议提供了一些身份验证的机制，其中最基本的一种是把登录凭据随每个请求一起发送到请求标头中。这里的用户名和密码未加密，而是使用一个:符号将用户名和密码串联在一起，形成单个字符串：username:password，再使用 base64 编码这个字符串。它适用于 API 调用以及不需要持久会话的简单身份验证工作流。显然，采用这种技术是很容易被攻击的，因为base64 编码的字符串以纯文本格式发送，可以轻松解码。HTTP还提供了摘要认证技术（HTTP Digest Auth），它的密码以 MD5 哈希形式代替纯文本形式发送的，因此更加安全。验证时，服务器生成一个随机值（称为随机数，nonce），并发回一个 HTTP 401 未验证状态，带有一个WWW-Authenticate标头（其值为Digest）以及随机数。WWW-Authenticate标头使浏览器显示用户名和密码输入框。用户输入凭据后，系统将对密码进行哈希处理，然后与每个请求的随机数一起在标头中发送。最后服务器使用用户名获取密码，将其与随机数一起哈希，然后验证哈希是否相同。上述方法都有一个特点，那就是无状态，服务器不保存用户信息，而是通过随请求发来的凭据来验证用户身份，这一点和JWT十分类似。<br>会话验证是一种用户状态存储在服务器上的身份验证技术，我在前文的新技术概述部分对它进行过介绍。它不需要用户在每个请求中提供用户名或密码，而是在登录后由服务器验证凭据。如果凭据有效，它将生成一个会话，并将其存储在一个会话存储中，然后将其会话的ID 发送回浏览器。浏览器将这个ID 存储为 cookie，该 cookie 可以在向服务器发出请求时随时发送。与JWT不同，基于会话的身份验证是有状态的。每次客户端请求服务器时，服务器必须将会话放在内存中，以便将ID 绑定到关联的用户。<br>一次性密码（One Time Password，OTP）通常用作身份验证的确认。OTP 是随机生成的代码，可用于验证用户是否是他们声称的身份。它通常用在启用双因素身份验证的应用中，在用户凭据确认后使用。现代 OTP 是无状态的，可以使用多种方法来验证它们。尽管有几种不同类型的 OTP，但基于时间的 OTP（TOTP）可以说是最常见的类型。它们生成后会在一段时间后过期。TOTP的工作流程是：客户端发送用户名和密码。经过凭据验证后，服务器会使用随机生成的种子生成随机代码，并将种子存储在服务端，然后将代码发送到受信任的系统（经过验证的电子邮件或手机号码等）。用户在受信任的系统上获取代码，然后将其输入回 Web 应用。最后服务器使用存储的种子验证代码，确保其未过期，并相应地授予访问权限。OTP与JWT较为相似，但是它使用受信任的系统，添加了一层额外的保护，从而更加安全。</p>
-<h1 id="应用领域解决方案"><a href="#应用领域解决方案" class="headerlink" title="应用领域解决方案"></a>应用领域解决方案</h1><p>JWT被广泛应用于各个厂商的软件产品中。比如，Google Cloud的API Gateway就使用了JWT技术。API Gateway是一个分布式API管理系统，可以通过在所有服务之间保持一致且定义明确的 REST API 来安全地访问各种服务，而不考虑服务实现。API Gateway支持使用 JWT 对用户进行身份验证。具体做法是将身份验证代码添加到客户端应用，客户端将HTTP 请求的授权标头中的JWT发送给后端，API Gateway 使用 JWT 颁发者的JSON Web密钥集(JWKS)高效地验证 JWT。此外，阿里云的网盘与相册服务（PDS）也支持JWT应用。用户可以在PDS 控制台创建自定义域和JWT应用，利用RSA算法创建一对公私钥，将公钥保存到PDS服务端，私钥保存到JWT应用服务端。JWT应用服务端将数据进行编码并用私钥进行签名生成JWT字符串，然后发送给PDS服务端。PDS服务端使用公钥验证JWT字符串合法后，返回access_token给JWT应用服务端，JWT应用服务端可以通过access_token来调用PDS服务端提供的API。<br>可以看到，JWT主要用于访问远程服务时的身份验证，但不同应用验证JWT的方法可能会有一些不同，就像上面的例子中，API Gateway使用JWKS验证JWT，而PDS使用RSA算法和公私钥进行验证。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wjj710.github.io/2024/02/08/introduction/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jay's Blog">
-      <meta itemprop="description" content="The night is darkest just before the dawn.">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jay's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/08/introduction/" class="post-title-link" itemprop="url">我的第一篇博客</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-02-08 11:14:39 / Modified: 18:23:30" itemprop="dateCreated datePublished" datetime="2024-02-08T11:14:39+01:00">2024-02-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">杂谈</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>对于程序员来说，写技术博客是十分必要的。今天我按照网上的教程，成功搭建了属于自己的博客网站，并部署在Github上，喜悦之情无以言表。这种凭借一己之力开创新事物的感觉仿佛让我回到了数年前，那时我写出了人生中第一个程序，也就是著名的”Hello World“。当看到终端上成功输出这句简单的英文时，我感到计算机世界的大门已向我徐徐打开。<br>如今，我接触到了更多的项目，更复杂的技术。然而，我的初心却从未改变。<br>一切正在开始 …… 不，一切已经开始！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
